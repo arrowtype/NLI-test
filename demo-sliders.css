@@ -1,0 +1,153 @@
+/* More-useful sliders for touch screens */
+/* From https://codepen.io/thundernixon/pen/dyygxLM */
+
+:root {
+  --trackBg: #777;
+  --trackFocus: #0051ff;
+  --thumbBg: #222;
+  --trackHeight: 1px;
+  --thumbHeight: 12px;
+  --thumbTouchHeight: 48px;
+  --sliderComponentBg: #ffffff;
+}
+
+/* slider */
+
+.slider {
+  height: var(--thumbTouchHeight);
+  width: 90vw;
+  /* max-width: 600px; */
+  display: grid;
+  align-content: center;
+  grid-template-columns: 1fr 4ch;
+  background: #f4f4f4;
+  padding: 0 0.75rem 0 0;
+  border-radius: 0.5rem;
+}
+
+label {
+  display: grid;
+  align-items: center;
+  color: #222;
+  text-align: right;
+}
+
+/* slider-specific styles */
+
+input[type="range"] {
+  -webkit-appearance: none;
+  margin: 18px 0;
+  width: 100%;
+  background: transparent; /* necessary for firefox */
+}
+input[type="range"]:focus {
+  outline: none;
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: var(--trackHeight);
+  cursor: pointer;
+  background: transparent;
+  background-image: linear-gradient(
+      to right,
+      var(--sliderComponentBg),
+      var(--sliderComponentBg) 20px,
+      var(--trackBg) 20px,
+      var(--trackBg) 50%,
+      transparent 50%
+    ),
+    linear-gradient(to left, var(--sliderComponentBg), var(--sliderComponentBg) 20px, var(--trackBg) 20px, var(--trackBg) 50%, transparent 50%);
+  border-radius: 1px; /* weidly, this property must be here */
+}
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  outline: none;
+  background-image: linear-gradient(
+      to right,
+      var(--sliderComponentBg),
+      var(--sliderComponentBg) 20px,
+      var(--trackFocus) 20px,
+      var(--trackFocus) 50%,
+      transparent 50%
+    ),
+    linear-gradient(to left, var(--sliderComponentBg), var(--sliderComponentBg) 20px, var(--trackFocus) 20px, var(--trackFocus) 50%, transparent 50%);
+}
+input[type="range"]::-webkit-slider-thumb {
+  height: var(--thumbTouchHeight);
+  width: var(--thumbTouchHeight);
+  border-radius: var(--thumbTouchHeight);
+  border: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: calc(-1 * (var(--thumbTouchHeight) / 2) + (var(--trackHeight) / 2));
+  background: none; /* necessary for iOS Safari */
+  background-image: radial-gradient(var(--thumbBg) calc(var(--thumbHeight) / 2), transparent calc(var(--thumbHeight) / 2), transparent);
+}
+
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: var(--trackHeight);
+  border-radius: 1px;
+  cursor: pointer;
+  background-color: red;
+  background-image: linear-gradient(
+      to right,
+      var(--sliderComponentBg),
+      var(--sliderComponentBg) 20px,
+      var(--trackBg) 20px,
+      var(--trackBg) 50%,
+      transparent 50%
+    ),
+    linear-gradient(to left, var(--sliderComponentBg), var(--sliderComponentBg) 20px, var(--trackBg) 20px, var(--trackBg) 50%, transparent 50%);
+}
+input[type="range"]:focus::-moz-range-track {
+  background-image: linear-gradient(
+      to right,
+      var(--sliderComponentBg),
+      var(--sliderComponentBg) 20px,
+      var(--trackFocus) 20px,
+      var(--trackFocus) 50%,
+      transparent 50%
+    ),
+    linear-gradient(to left, var(--sliderComponentBg), var(--sliderComponentBg) 20px, var(--trackFocus) 20px, var(--trackFocus) 50%, transparent 50%);
+}
+input[type="range"]::-moz-focus-outer {
+  border: 0;
+}
+input[type="range"]::-moz-range-thumb {
+  height: var(--thumbTouchHeight);
+  width: var(--thumbTouchHeight);
+  border: none;
+  border-radius: var(--thumbTouchHeight);
+  background: none; /* necessary for iOS Safari */
+  background-image: radial-gradient(var(--thumbBg) calc(var(--thumbHeight) / 2), transparent calc(var(--thumbHeight) / 2), transparent);
+  cursor: pointer;
+}
+
+input[type="range"]::-ms-track {
+  width: calc(100%- var(--thumbTouchHeight));
+  margin-left: calc(var(--thumbTouchHeight) / 2);
+  height: var(--trackHeight);
+  cursor: pointer;
+}
+input[type="range"]::-ms-fill-lower {
+  background-color: #777;
+}
+input[type="range"]::-ms-fill-upper {
+  background: #777;
+}
+input[type="range"]::-ms-thumb {
+  width: var(--thumbHeight);
+  margin-left: calc(var(--thumbTouchHeight) / 2);
+  margin-right: calc(var(--thumbTouchHeight) / 2);
+  border-radius: 999px;
+  background-color: #222;
+  cursor: pointer;
+}
+input[type="range"]:focus::-ms-fill-lower {
+  background: blue;
+}
+input[type="range"]:focus::-ms-fill-upper {
+  background: blue;
+}
