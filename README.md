@@ -1,3 +1,5 @@
+UPDATE: a fuller version of this repo is available at https://github.com/arrowtype/HOI-test
+
 # Higher-Order Interpolation experiments
 
 Previously in this repo, I shared [some experiments with higher-order interpolation (HOI)](https://arrowtype.github.io/NLI-test/), a concept first shared in April 2018 by [Underware](https://underware.nl) at TypoLabs Berlin. They later adjusted this lecture into this [must-read article on HOI](https://underware.nl/case-studies/hoi/), complete with helpful diagrams & animations to explain what it is and how it works.
